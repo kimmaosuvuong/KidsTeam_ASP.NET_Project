@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hệ quản trị cơ sở dữ liệu</title>
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/boostrap-combobox.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Hệ quản trị cơ sở dữ liêu</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" style="overflow-y: auto;" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="index.html">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Đơn hàng">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#order"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Đơn hàng</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="order">
+                    <li>
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#export"
+                           data-parent="#exampleAccordion">Đơn bán hàng</a>
+                        <ul class="sidenav-third-level collapse" id="export">
+                            <li>
+                                <a href="ValidateOrder.html">Duyệt đơn hàng</a>
+                            </li>
+                            <li>
+                                <a href="ListOrder.html">Danh sách đơn hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#import"
+                           data-parent="#exampleAccordion">Đơn nhập hàng</a>
+                        <ul class="sidenav-third-level collapse" id="import">
+                            <li>
+                                <a href="login.html">Danh sách đơn nhập hàng</a>
+                            </li>
+                            <li>
+                                <a href="ListOrder.html">Tạo đơn nhập hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Nhà cung cấp">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#vendor"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                    <span class="nav-link-text">Nhà cung cấp</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="vendor">
+                    <li>
+                        <a href="login.html">Danh sách nhà cung cấp</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Tạo nhà cung cấp</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sản phẩm">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#product"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                    <span class="nav-link-text">Sản phẩm</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="product">
+                    <li>
+                        <a href="login.html">Danh sách sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Tạo sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Khách hàng">
+                <a class="nav-link" href="tables.html">
+                    <i class="fa fa-fw fa-user-circle"></i>
+                    <span class="nav-link-text">Khách hàng</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Nhân viên">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#admin"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-circle-o"></i>
+                    <span class="nav-link-text">Nhân viên</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="admin">
+                    <li>
+                        <a href="login.html">Danh sách nhân viên</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Thêm mới nhân viên</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Báo cáo">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#report"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-bar-chart"></i>
+                    <span class="nav-link-text">Báo cáo</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="report">
+                    <li>
+                        <a href="login.html">Báo cáo doanh thu</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Báo cáo tồn kho</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Kho hàng">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#stock"
+                   data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-cubes"></i>
+                    <span class="nav-link-text">Kho hàng</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="stock">
+                    <li>
+                        <a href="login.html">Danh sách kho hàng</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Thêm kho hàng</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Kiểm tra tồn kho</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="col-12 display-flex flex-row">
+            <div class="col-6">
+                <div class="title">Thông tin đơn hàng</div>
+                <div class="form-input">
+                    <label>Mã đơn hàng: </label>
+                    <span class="font-weight-bold">OI0001</span>
+                </div>
+                <div class="form-input">
+                    <label>Trạng thái: </label>
+                    <span class="font-weight-bold">Chờ duyệt</span>
+                </div>
+                <div class="form-input">
+                    <label>Ghi chú: </label>
+                    <textarea rows="4" placeholder="Nhập ghi chú tại đây"></textarea>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-12">
+                    <div class="title">Chọn nhà cung cấp</div>
+                    <div class="form-input">
+                        <label>Nhà cung cấp: </label>
+                        <select class="combobox" id="selectVendor">
+                            <option value="NA">NCC A</option>
+                            <option value="NB">NCC B</option>
+                            <option value="NC">NCC C</option>
+                            <option value="ND">NCC D</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div class="title pb-1">Thông tin nhà cung cấp</div>
+                    <div class="form-input">
+                        <label>Mã NCC: </label>
+                        <span class="font-weight-bold">VD0001</span>
+                    </div>
+                    <div class="form-input">
+                        <label>Tên NCC: </label>
+                        <span class="font-weight-bold">NCC A</span>
+                    </div>
+                    <div class="form-input">
+                        <label>Địa chỉ: </label>
+                        <span class="font-weight-bold">Kha Vạn Cân, Thủ Đức</span>
+                    </div>
+                    <div class="form-input">
+                        <label>SDT: </label>
+                        <span class="font-weight-bold">0968xxxxxx</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <div class="col-12 mt-3">
+                <div class="title">Danhs sách sản phẩm</div>
+                <div class="col-12 mb-2 mt-2 ml-0 text-left">
+                    <button type="button" class="btn btn-outline-info" data-id="main-board"><i class="fa fa-plus"></i> Thêm sản phẩm</button>
+                </div>
+                <table class="table table-striped" id="main-board">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng tiền</th>
+                        <th>Thao tác</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-12 text-right" style="right: 3%;">
+            <button type="button" class="btn btn-outline-success">Hoàn tất</button>
+        </div>
+        <!--->
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Kidsteam@gmail.com</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Bạn có muốn đăng xuất không?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Huỷ</button>
+                    <a class="btn btn-primary" href="login.html">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Confirm modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Xác nhận</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Bạn có muốn xoá không?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Huỷ</button>
+                    <button type="button" class="btn btn-outline-danger allow" >Xoá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- List product --->
+    <select class="combobox" id="list-product" style="display: none">
+        <option></option>
+        <option value="PD0001">Sản phẩm A</option>
+        <option value="PD0002">Sản phẩm B</option>
+        <option value="PD0003">Sản phẩm C</option>
+        <option value="PD0004">Sản phẩm D</option>
+    </select>
+    <!---->
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/boostrap-combobox.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var nextRowId = 1;
+            $('#selectVendor').combobox();
+            setTotal();
+
+            //add 1 row in table
+            $('button').click(function(){
+                var id = $(this).data('id'),
+                    product = $('#list-product').clone();
+
+                product.attr('id',"row-name-"+nextRowId);
+
+                $('#'+id + ' tbody').append(
+                    $('<tr id="row-' + nextRowId + '">').append(
+                        $('<th scope="row">').html(nextRowId),
+                        $('<th class="product-code">').html("Null"),
+                        $('<th class="product-name">').append(product),
+                        $('<th class="product-quantity">').append(
+                            $('<input type="number" class="form-control" placeholder="Nhập số lượng">')
+                        ),
+                        $('<th class="product-price">').append(
+                            $('<input type="number" class="form-control" placeholder="Nhập giá tiền">')
+                        ),
+                        $('<th class="product-total">').html(0),
+                        $('<th>').append(
+                            $('<a data-type="edit" data-id="row-'+ nextRowId +'" data-status="creating" class="mr-auto" href="#">').append(
+                                $('<i class="fa fa-check">')
+                            ),
+                            $('<a data-toggle="modal" data-type="close"  data-id="row-'+ nextRowId +'" data-target="#confirmModal" class="mr-auto ml-2" href="#">').append(
+                                $('<i class="fa fa-times">')
+                            )
+                        )
+                    )
+                );
+                $('#row-name-'+nextRowId).combobox();
+                //change code
+                $('#row-name-'+nextRowId).combobox().change(function(){
+                    var value = $(this).val();
+                    $(this).parent().parent().children('.product-code').html(value);
+                });
+                setTotal();
+                editTable('row-'+nextRowId);
+                nextRowId = nextRowId + 1;
+            });
+            //change total
+            function setTotal() {
+                $('tbody .product-quantity, tbody .product-price').keyup(function () {
+                    var parent = $(this).parent(),
+                        price = $(parent).children('.product-price').children('input').val(),
+                        quantity = $(parent).children('.product-quantity').children('input').val();
+                    $(parent).children('.product-total').html(price * quantity);
+                });
+            }
+            //edit table
+            function editTable(id) {
+                $('#'+ id +' a').click(function () {
+                    if ($(this).data('type') == 'edit') {
+                        //change status from normal to editing
+                        if ($(this).data('status') == 'normal') {
+                            var id = $(this).data('id'),
+                                quantity = $('#' + id + ' .product-quantity').html(),
+                                price = $('#' + id + ' .product-price').html().replace(/,/g, "");
+                            $('#' + id + ' .product-quantity').html('<input type="number" class="form-control" value="' + quantity + '"/>');
+                            $('#' + id + ' .product-price').html('<input type="number" class="form-control" value="' + price + '"/>');
+                            $(this).data('status', 'editting');
+                            $(this).children('i').first().removeClass('fa-edit');
+                            $(this).children('i').first().addClass('fa-check');
+                        } else if ($(this).data('status') == 'editting') {
+                            var id = $(this).data('id'),
+                                quantity = $('#' + id + ' .product-quantity input').val(),
+                                price = $('#' + id + ' .product-price input').val();
+                            $('#' + id + ' .product-quantity').html(quantity);
+                            $('#' + id + ' .product-price').html(price);
+                            $(this).data('status', 'normal');
+                            $(this).children('i').first().removeClass('fa-check');
+                            $(this).children('i').first().addClass('fa-edit');
+                        } else if ($(this).data('status') == 'creating') {
+                            var id = $(this).data('id'),
+                                quantity = $('#' + id + ' .product-quantity input').val(),
+                                price = $('#' + id + ' .product-price input').val(),
+                                name = $('#' + id + ' .product-name select').combobox().find('option:selected').text();
+                            $('#' + id + ' .product-quantity').html(quantity);
+                            $('#' + id + ' .product-price').html(price);
+                            $('#' + id + ' .product-name').html(name);
+                            $(this).data('status', 'normal');
+                            $(this).children('i').first().removeClass('fa-check');
+                            $(this).children('i').first().addClass('fa-edit');
+                        }
+                    } else if($(this).data('type') == 'close') {
+                        $('#confirmModal').data('id',$(this).data('id'));
+                    }
+                })
+            }
+            //delete row
+            $('#confirmModal .allow').click(function(){
+                var id = $('#confirmModal').data('id');
+                $('#'+id).remove();
+                $('#confirmModal').modal('toggle');
+                nextRowId = nextRowId - 1;
+            });
+        });
+    </script>
+</div>
+</body>
+
+</html>

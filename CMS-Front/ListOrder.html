@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hệ quản trị cơ sở dữ liệu</title>
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="vendor/bootstrap/css/boostrap-datepicker.css">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Hệ quản trị cơ sở dữ liêu</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" style="overflow-y: auto;" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="index.html">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Đơn hàng">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#order" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Đơn hàng</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="order">
+                    <li>
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#export" data-parent="#exampleAccordion">Đơn bán hàng</a>
+                        <ul class="sidenav-third-level collapse" id="export">
+                            <li>
+                                <a href="login.html">Duyệt đơn hàng</a>
+                            </li>
+                            <li>
+                                <a href="ListOrder.html">Danh sách đơn hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#import" data-parent="#exampleAccordion">Đơn nhập hàng</a>
+                        <ul class="sidenav-third-level collapse" id="import">
+                            <li>
+                                <a href="login.html">Danh sách đơn nhập hàng</a>
+                            </li>
+                            <li>
+                                <a href="ListOrder.html">Tạo đơn nhập hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Nhà cung cấp">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#vendor" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                    <span class="nav-link-text">Nhà cung cấp</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="vendor">
+                    <li>
+                        <a href="login.html">Danh sách nhà cung cấp</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Tạo nhà cung cấp</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sản phẩm">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#product" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                    <span class="nav-link-text">Sản phẩm</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="product">
+                    <li>
+                        <a href="login.html">Danh sách sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Tạo sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Khách hàng">
+                <a class="nav-link" href="tables.html">
+                    <i class="fa fa-fw fa-user-circle"></i>
+                    <span class="nav-link-text">Khách hàng</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Nhân viên">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#admin" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-user-circle-o"></i>
+                    <span class="nav-link-text">Nhân viên</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="admin">
+                    <li>
+                        <a href="login.html">Danh sách nhân viên</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Thêm mới nhân viên</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Báo cáo">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#report" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-bar-chart"></i>
+                    <span class="nav-link-text">Báo cáo</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="report">
+                    <li>
+                        <a href="login.html">Báo cáo doanh thu</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Báo cáo tồn kho</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Kho hàng">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#stock" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-cubes"></i>
+                    <span class="nav-link-text">Kho hàng</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="stock">
+                    <li>
+                        <a href="login.html">Danh sách kho hàng</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Thêm kho hàng</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Kiểm tra tồn kho</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Đăng xuất</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="input-group">
+                <div class="col-5 date-picker">
+                    <label>Từ ngày : </label>
+                    <div id="datepicker1" class="input-group date" data-date-format="dd-mm-yyyy">
+                        <input class="form-control" readonly="" type="text">
+                        <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </span>
+                    </div>
+                </div>
+                <div class="col-5 date-picker">
+                    <label>Đến ngày : </label>
+                    <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
+                        <input class="form-control" readonly="" type="text">
+                        <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </span>
+                    </div>
+                </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary btn-outline-info" type="button">Tìm kiếm</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Khách hàng</th>
+                    <th>Ngày đơn hàng</th>
+                    <th>Tông đơn hàng</th>
+                    <th>Trạng thái</th>
+                    <th>Chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>OS0001</td>
+                    <td>Trần Văn A</td>
+                    <td>29/01/2018</td>
+                    <td>390,000</td>
+                    <td>Đang đặt hàng</td>
+                    <td>
+                        <a data-toggle="modal" data-target="#orderDetail" class="mr-auto" href="#"><i
+                                class="fa fa-eye"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>OS0001</td>
+                    <td>Trần Văn A</td>
+                    <td>29/01/2018</td>
+                    <td>390,000</td>
+                    <td>Đang đặt hàng</td>
+                    <td>
+                        <a data-toggle="modal" data-target="#orderDetail" class="mr-auto" href="#"><i
+                                class="fa fa-eye"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Kidteam@gmail.com</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Bạn có muốn đăng xuất không?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Huỷ</button>
+                    <a class="btn btn-primary" href="login.html">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Order detail modal -->
+    <div class="modal fade" id="orderDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chi tiết đơn hàng</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="display-flex flex-row">
+                        <div class="col-4">
+                            <div class="title">Thông tin khách hàng</div>
+                            <div class="form-input">
+                                <label>Mã khách hàng:</label>
+                                <span class="font-weight-bold">CS0001</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Họ tên:</label>
+                                <span class="font-weight-bold">Trần Văn A</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Số điện thoại:</label>
+                                <span class="font-weight-bold">0968xxxxxx</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Địa chỉ:</label>
+                                <span class="font-weight-bold">Kha Vạn Cân, Thủ Đức</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="title">Thông tin đơn hàng</div>
+                            <div class="form-input">
+                                <label>Mã đơn hàng:</label>
+                                <span class="font-weight-bold">OS0001</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Ngày đơn hàng:</label>
+                                <span class="font-weight-bold">1/1/2018</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Ngày nhận hàng:</label>
+                                <span class="font-weight-bold">3/1/2018</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Địa chỉ:</label>
+                                <span class="font-weight-bold">Kha Vạn Cân, Thủ Đức</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="title">Chi tiết đơn hàng</div>
+                            <div class="form-input">
+                                <label>Tổng sản phẩm:</label>
+                                <span class="font-weight-bold">13</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Tổng gía trị:</label>
+                                <span class="font-weight-bold">1,200,000</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Ghi chú:</label>
+                                <span class="font-weight-bold">Không có</span>
+                            </div>
+                            <div class="form-input">
+                                <label>Trạng thái:</label>
+                                <span class="font-weight-bold">Đã giao hàng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="title">Danh sách sản phẩm</div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Mã sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Tổng tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>PD0001</td>
+                                <td>Tivi Samsung UKPDN</td>
+                                <td>3</td>
+                                <td>5,000,000</td>
+                                <td>15,000,000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>PD0001</td>
+                                <td>Tivi Samsung UKPDN</td>
+                                <td>3</td>
+                                <td>5,000,000</td>
+                                <td>15,000,000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>PD0001</td>
+                                <td>Tivi Samsung UKPDN</td>
+                                <td>3</td>
+                                <td>5,000,000</td>
+                                <td>15,000,000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>PD0001</td>
+                                <td>Tivi Samsung UKPDN</td>
+                                <td>3</td>
+                                <td>5,000,000</td>
+                                <td>15,000,000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <script src="vendor/bootstrap/js/datepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker1").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker('update', new Date());
+
+            $("#datepicker2").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker('update', new Date());
+        });
+    </script>
+</div>
+</body>
+
+</html>
