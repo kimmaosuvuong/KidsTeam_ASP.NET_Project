@@ -1,0 +1,161 @@
+.nameProduct{
+  font-weight: 400;
+  font-size: 40px;
+  text-transform: none;
+  font-family: 'Oswald',sans-serif;
+  margin-bottom: 30px;
+}
+.productPrices {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.productPrices .currentPrice {
+  font-size: 26px;
+  font-weight: 600;
+  color: #444;
+  font-family: 'Oswald',sans-serif;
+  padding: 4px 0 5px 0;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #444;
+}
+p {
+  color: #666;
+  font-size: 14px;
+}
+.productInformation .productDescription p{
+  color: #666;
+  font-size: 14px;
+}
+.productActions .control-label {
+  line-height: 30px;
+  margin-bottom: 0;
+  margin-right: 15px;
+  min-width: 65px;
+  width: auto;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #444;
+  font-weight: 400;
+  font-family: 'Oswald',sans-serif;
+}
+.productVariants>.productVariantsItem select {
+  border: 1px solid #ebebeb;
+  height: 40px;
+  width: 100%;
+  padding: 0 12px;
+  margin-top: 5px;
+  background: none;
+  font-size: 14px;
+  color: #999;
+}
+.productVariants>.productVariantsItem{
+  margin: 15px 0;
+}
+.productVariants>.productVariantsItem ul li {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+.input-color {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.productVariants>.productVariantsItem .color {
+  margin-left: 0;
+  background-color: #F39C11;
+  border: 2px solid #414141;
+  margin-top: 0;
+}
+
+
+.product-variants>.product-variants-item .color {
+  margin-left: 0;
+  margin-top: 0;
+}
+.input-color:checked+span, .input-color:hover+span, .input-radio:checked+span, .input-radio:hover+span {
+  border: 2px solid #414141;
+}
+.color, .custom-checkbox input[type="checkbox"]+span.color {
+  margin-left: 0;
+}
+.color, .custom-checkbox input[type=checkbox]+span.color {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  margin: .3125rem;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.15);
+  border: 1px solid rgba(0,0,0,.05);
+  cursor: pointer;
+  background-size: contain;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+.productQuantity  {
+  color: #414141;
+  background-color: #fff;
+}
+.productQuantity .add, .productQuantity .qty {
+  margin-bottom: .5rem;
+}
+.productQuantity .qty {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.product-quantity .inputGroup {
+  width: auto;
+}
+.productActions .addToCart {
+  background: #aa6949 none repeat scroll 0 0;
+  font-size: 14px;
+  height: auto;
+  outline: none;
+  line-height: 40px;
+  padding: 0 13px;
+  text-transform: uppercase;
+  transition: all 0.15s ease-in-out 0s;
+  -moz-transition: all 0.15s ease-in-out 0s;
+  -ms-transition: all 0.15s ease-in-out 0s;
+  -o-transition: all 0.15s ease-in-out 0s;
+  -webkit-transition: all 0.15s ease-in-out 0s;
+  margin-right: 5px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border-color: transparent;
+}
+.productQuantity #quantityWanted {
+  color: #414141;
+  background-color: #fff;
+  max-width: 80px;
+}
+
+ul#pills-tab.nav.nav-pills a.nav-link{
+  font-size: 18px;
+  font-family: 'Oswald',sans-serif;
+  padding: 0;
+  padding-right: 12px;
+  margin-right: 12px;
+  background: none;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+ul#pills-tab.nav.nav-pills a.nav-link.active{
+  color: #aa6949;
+}
