@@ -166,8 +166,8 @@
         <div class="col-12">
             <div class="input-group">
                 <div class="form-input col-10">
-                    <label>Tên sản phẩm:</label>
-                    <input type="text" class="text-box p-1" placeholder="Nhập tên sản phẩm cần tìm"/>
+                    <label>Tên khách hàng:</label>
+                    <input type="text" class="text-box p-1" placeholder="Nhập tên khách hàng"/>
                 </div>
                 <span class="input-group-btn col-2">
                     <button class="btn btn-secondary btn-outline-info" type="button">Tìm kiếm</button>
@@ -179,20 +179,20 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Mã sản phẩm</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Trạng thái</th>
+                    <th>Mã</th>
+                    <th>Tên</th>
+                    <th>Loại khách hàng</th>
+                    <th>Địa chỉ</th>
                     <th>Chi tiết</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>PD0001</td>
-                    <td>Áo thun ABC</td>
-                    <td>200,000</td>
-                    <td>Đang kinh doanh</td>
+                    <td>CT0001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Bình thường</td>
+                    <td>Kha Vạn Cân, Thủ Đức</td>
                     <td>
                         <a data-toggle="modal" data-target="#orderDetail" class="mr-auto" href="#"><i
                                 class="fa fa-eye"></i></a>
@@ -200,10 +200,10 @@
                 </tr>
                 <tr>
                     <th scope="row">1</th>
-                    <td>PD0001</td>
-                    <td>Áo thun ABC</td>
-                    <td>200,000</td>
-                    <td>Đang kinh doanh</td>
+                    <td>CT0001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Bình thường</td>
+                    <td>Kha Vạn Cân, Thủ Đức</td>
                     <td>
                         <a data-toggle="modal" data-target="#orderDetail" class="mr-auto" href="#"><i
                                 class="fa fa-eye"></i></a>
@@ -259,33 +259,32 @@
                 <div class="modal-body">
                     <div class="display-flex flex-column" style="border: none">
                         <div class="form-input mb-2">
-                            <label>Mã sản phẩm:</label>
+                            <label>Mã NCC:</label>
                             <span class="font-weight-bold">VD0001</span>
                         </div>
-                        <div class="form-input mb-2 product-name">
-                            <label>Tên sản phẩm:</label>
-                            <span class="font-weight-bold">Áo thun ABC</span>
+                        <div class="form-input mb-2 vendor-name">
+                            <label>Tên NCC:</label>
+                            <span class="font-weight-bold">Nhà cung cấp A</span>
                         </div>
-                        <div class="form-input mb-2 product-price">
-                            <label>Giá bán:</label>
-                            <span class="font-weight-bold">200,000</span>
+                        <div class="form-input mb-2 vendor-address">
+                            <label>Địa chỉ:</label>
+                            <span class="font-weight-bold">Kha Vạn Cân, Thủ Đức</span>
                         </div>
-                        <div class="form-input mb-2 product-status">
-                            <label>Trạng thái:</label>
-                            <span class="font-weight-bold">Còn hàng</span>
+                        <div class="form-input mb-2 vendor-phone">
+                            <label>Điện thoại:</label>
+                            <span class="font-weight-bold">0968xxxxxx</span>
                         </div>
-                        <div class="form-input mb-2 product-type">
-                            <label>Loại</label>:</label>
-                            <span class="font-weight-bold">Áo thun</span>
+                        <div class="form-input mb-2 vendor-email">
+                            <label>Email</label>:</label>
+                            <span class="font-weight-bold">example@gmail.com</span>
                         </div>
-                        <div class="form-input mb-2 product-detail">
-                            <label>Mô tả:</label>
-                            <span class="font-weight-bold">Thông tin mô tả sản phẩm</span>
+                        <div class="form-input mb-2 vendor-status">
+                            <label>Trạng thái</label>
+                            <span class="font-weight-bold">Kích hoạt</span>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-outline-info" id="btn-edit" type="button" data-status="normal">Sửa</button>
                     <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
@@ -304,65 +303,52 @@
         $(function () {
             $('#btn-edit').click(function(){
                 if($(this).data('status') == 'normal' ) {
-                    var name = $('.product-name span').html(),
-                        price = $('.product-price span').html(),
-                        status = $('.product-status span').html(),
-                        type = $('.product-type span').html(),
-                        detail = $('.product-detail span').html();
+                    var name = $('.vendor-name span').html(),
+                        address = $('.vendor-address span').html(),
+                        email = $('.vendor-email span').html(),
+                        phone = $('.vendor-phone span').html();
                     //remove span
-                    $('.product-name span').remove();
-                    $('.product-price span').remove();
-                    $('.product-status span').remove();
-                    $('.product-type span').remove();
-                    $('.product-detail span').remove();
+                    $('.vendor-name span').remove();
+                    $('.vendor-address span').remove();
+                    $('.vendor-email span').remove();
+                    $('.vendor-phone span').remove();
+                    $('.vendor-status span').remove();
                     //add input tag
-                    $('.product-name').append($('<input type="text" class="text-box" value="' + name + '">'));
-                    $('.product-price').append($('<input type="text" class="text-box" value="' + price + '">'));
-                    $('.product-status').append(
+                    $('.vendor-email').append($('<input type="text" class="text-box" value="' + email + '">'));
+                    $('.vendor-name').append($('<input type="text" class="text-box" value="' + name + '">'));
+                    $('.vendor-phone').append($('<input type="text" class="text-box" value="' + phone + '">'));
+                    $('.vendor-address').append($('<input type="text" class="text-box" value="' + address + '">'));
+                    $('.vendor-status').append(
                         $('<select class="combobox" id="selectStatus">').append(
-                            $('<option value="DKD">').html('Đang kinh doanh'),
-                            $('<option value="NKD">').html('Ngừng kinh doanh')
+                            $('<option value="AT">').html('Kích hoạt'),
+                            $('<option value="NAT">').html('Chưa kích hoạt')
                         )
-                    );
-                    $('.product-type').append(
-                        $('<select class="combobox" id="selectType">').append(
-                            $('<option value="AT">').html('Áo thun'),
-                            $('<option value="AK">').html('Áo khoác'),
-                            $('<option value="ADT">').html('Áo tay dài'),
-                            $('<option value="QJ">').html('Quần Jean')
-                        )
-                    );
-                    $('.product-detail').append(
-                        $('<textarea rows="4">').val(detail)
                     );
 
                     $('#selectStatus').combobox();
-                    $('#selectType').combobox();
                     $(this).data('status','editting');
 
                     $(this).html("Xác nhận");
                 } else if($(this).data('status') == 'editting'){
-                    var name = $('.product-name input').val(),
-                        price = $('.product-price input').val(),
-                        type = $('.product-type select').combobox().find('option:selected').text(),
-                        detail = $('.product-detail textarea').val(),
-                        status = $('.product-status select').combobox().find('option:selected').text();
+                    var name = $('.vendor-name input').val(),
+                        address = $('.vendor-address input').val(),
+                        email = $('.vendor-email input').val(),
+                        phone = $('.vendor-phone input').val(),
+                        status = $('.vendor-status select').combobox().find('option:selected').text();
                     //remove input tag
-                    $('.product-name input').remove();
-                    $('.product-price input').remove();
-                    $('.product-type').html('');
-                    $('.product-detail textarea').remove();
-                    $('.product-status').html('');
+                    $('.vendor-name input').remove();
+                    $('.vendor-address input').remove();
+                    $('.vendor-email input').remove();
+                    $('.vendor-phone input').remove();
+                    $('.vendor-status').html('');
                     //add span tag
-                    $('.product-price').append($('<span class="font-weight-bold">').html(price));
-                    $('.product-name').append($('<span class="font-weight-bold">').html(name));
-                    $('.product-detail').append($('<span class="font-weight-bold">').html(detail));
-                    $('.product-status').append(
+                    $('.vendor-email').append($('<span class="font-weight-bold">').html(email));
+                    $('.vendor-name').append($('<span class="font-weight-bold">').html(name));
+                    $('.vendor-phone').append($('<span class="font-weight-bold">').html(phone));
+                    $('.vendor-address').append($('<span class="font-weight-bold">').html(address));
+                    $('.vendor-status').append(
                         $('<label>').html('Trạng thái'),
                         $('<span class="font-weight-bold">').html(status));
-                    $('.product-type').append(
-                        $('<label>').html('Loại'),
-                        $('<span class="font-weight-bold">').html(type));
                     $(this).data('status','normal');
                     $(this).html("Sửa");
                 }
