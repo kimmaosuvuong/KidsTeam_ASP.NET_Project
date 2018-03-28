@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+<link rel="stylesheet" href=@Url.Content("/Content/css/index.css")>
+<link rel="stylesheet" href=@Url.Content("/Content/css/category.css")>
+<link rel="stylesheet" href=@Url.Content("/Content/css/cart.css")>
+<link rel="stylesheet" href=@Url.Content("/Content/css/login.css")>
+
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="bn-top col-12 col-xl-12 col-lg-12">
+            <div class="">
+                <p><img class="img-fluid" src=@Url.Content("/Content/images/bn-top.jpg") alt=""></p>
+            </div>
+            <div class="breadcrumb breadcrumbCategory">
+                <h2>men collection</h2>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><a href="#">Checkout</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <form class="form-checkout">
+                <h1 class="step-title h3">
+                    Personal Information
+                </h1>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputNamed3" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputNamed3" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPhoneNumber3" class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputPhoneNumber3" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputAddress3" class="col-sm-2 col-form-label">Your Address</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputAddress3" placeholder="Your Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10 text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xl-4">
+
+            <div class="card cart-summary">
+                <div class="cart-detailed-totals">
+                    <div class="card-block">
+                        <div class="cart-summary-line" id="cart-subtotal-products">
+                            <span class="label js-subtotal">  1 item </span>
+                            <span class="value">$16.51</span>
+                        </div>
+                        <div class="cart-summary-line" id="cart-subtotal-shipping">
+                            <span class="label"> Shipping </span>
+                            <span class="value">$7.00</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-block">
+                        <div class="cart-summary-line cart-total">
+                            <span class="label">Total (tax excl.)</span>
+                            <span class="value">$23.51</span>
+                        </div>
+
+                        <div class="cart-summary-line">
+                            <small class="label">Taxes</small>
+                            <small class="value">$0.00</small>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div id="block-reassurance">
+                <ul>
+                    <li>
+                        <div class="block-reassurance-item">
+                            <img src=@Url.Content("/Content/images/ic_verified_user_black_36dp_1x.png")
+                                 alt="Security policy (edit with Customer reassurance module)">
+                            <span class="h6">Security policy (edit with Customer reassurance module)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block-reassurance-item">
+                            <img src=@Url.Content("/Content/images/ic_local_shipping_black_36dp_1x.png")
+                                 alt="Delivery policy (edit with Customer reassurance module)">
+                            <span class="h6">Delivery policy (edit with Customer reassurance module)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="block-reassurance-item">
+                            <img src=@Url.Content("/Content/images/ic_swap_horiz_black_36dp_1x.png")
+                                 alt="Return policy (edit with Customer reassurance module)">
+                            <span class="h6">Return policy (edit with Customer reassurance module)</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src=@Url.Content("/Content/js/jquery-3.3.1.min.js")></script>
+    <script src=@Url.Content("/Content/js/popper.js")></script>
+    <script src=@Url.Content("/Content/bootstrap-4.0.0/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/js/index.js")></script>
+</div>
+
