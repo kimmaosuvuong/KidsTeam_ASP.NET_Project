@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ShopWebMVC.Models;
+using Model;
 using System.Data;
-using System.Reflection;
 
-namespace ShopWebMVC.Utils
+namespace ShopWebDAO.Utils
 {
     public class ClassUtils
     {

@@ -1,35 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using ShopWebMVC.Utils;
-using ShopWebMVC.Models;
+using System.Text;
+using System.Threading.Tasks;
+using Model;
+using ShopWebDAO.Utils;
 
-namespace ShopWebMVC.Services
+namespace ShopWebDAO
 {
-    public class CategoryServices : ClassUtils
+    public class CategoryDAO : ClassUtils
     {
         IList<Category> listCategoryDb;
 
-        public CategoryServices() {
-            listCategoryDb = findAll<Category>(); 
+        public CategoryDAO()
+        {
+            listCategoryDb = findAll<Category>();
         }
         //lay danh sach dau muc chinh
-        public List<CategoryModel> findAllCategory() {
+        public List<CategoryModel> findAllCategory()
+        {
             List<CategoryModel> result = new List<CategoryModel>();
-            foreach (Category elm in listCategoryDb) {
-                if (elm.ParentId == null) {
+            foreach (Category elm in listCategoryDb)
+            {
+                if (elm.ParentId == null)
+                {
                     result.Add(buildCategoryModel(elm));
                 }
             }
-                return result;
+            return result;
         }
         //tao CategoryModel tu Category truyen vao
-        private CategoryModel buildCategoryModel(Category category) {
+        private CategoryModel buildCategoryModel(Category category)
+        {
             CategoryModel result = new CategoryModel();
             result.childrens = new List<CategoryModel>();
-            foreach (Category elm in listCategoryDb) {
-                if (elm.ParentId == category.Id) {
+            foreach (Category elm in listCategoryDb)
+            {
+                if (elm.ParentId == category.Id)
+                {
                     result.childrens.Add(buildCategoryModel(elm));
                 }
             }

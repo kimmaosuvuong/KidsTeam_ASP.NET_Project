@@ -1,0 +1,9 @@
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebService.dll
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebService.pdb
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\Model.dll
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebDAO.dll
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\Model.pdb
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebDAO.pdb
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.csprojResolveAssemblyReference.cache
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.dll
+C:\Users\minht\Desktop\ASP Project\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.pdb
