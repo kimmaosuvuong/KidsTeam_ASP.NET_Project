@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ShopWebMVC.Controllers
 {
-    public class CartController : Controller
+    public class CartController : CustomerBaseController
     {
         // GET: Cart
         public ActionResult Index()

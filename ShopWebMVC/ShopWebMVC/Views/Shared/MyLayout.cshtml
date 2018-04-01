@@ -1,337 +1,238 @@
-﻿<!DOCTYPE html>
+﻿@using ShopWebMVC.Models
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>@Page.Title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href=@Url.Content("/Content/css/index.css")>
-        <link rel="stylesheet" href=@Url.Content("/Content/bootstrap-4.0.0/css/bootstrap.min.css")>
-        <link rel="stylesheet" href=@Url.Content("/Content/bootstrap-4.0.0/css/bootstrap-reboot.min.css")>
-        <link rel="stylesheet" href=@Url.Content("/Content/font-awesome-4.7.0/css/font-awesome.min.css")>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&amp;subset=vietnamese"
-              rel="stylesheet">
-        <title>Trang chủ</title>
-        @RenderSection("head", required: false)
-    </head>
-    <body>
-        <main>
-            <header>
-                <nav class="header-nav">
-                    <div class="container">
-                        <div class="leftHeaderNav">
-                            <span>ELS</span>
-                            <span>USD</span>
-                        </div>
-                        <div class="middleHeaderNav">
-                            <span>Welcome to Fashion Shop !</span>
-                        </div>
-                        <div class="rightHeaderNav">
-                            <div class="myAccount">
-                                <div class="textAccount">
-                                    <span>My Account</span>
-                                    <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="accountList">
-                                    <a class="itemAccount">My Account</a>
-                                    <a class="itemAccount">Contact</a>
-                                    <a class="itemAccount">My Cart</a>
-                                    <a class="itemAccount">Sign in</a>
-                                </div>
+<head>
+    <title>@Page.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=@Url.Content("/Content/css/index.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/bootstrap-4.0.0/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/bootstrap-4.0.0/css/bootstrap-reboot.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/font-awesome-4.7.0/css/font-awesome.min.css")>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&amp;subset=vietnamese"
+          rel="stylesheet">
+    <title>Trang chủ</title>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <main>
+        <header>
+            <nav class="header-nav">
+                <div class="container">
+                    <div class="leftHeaderNav">
+                        <span>ELS</span>
+                        <span>USD</span>
+                    </div>
+                    <div class="middleHeaderNav">
+                        <span>Welcome to Fashion Shop !</span>
+                    </div>
+                    <div class="rightHeaderNav">
+                        <div class="myAccount">
+                            <div class="textAccount">
+                                <span>My Account</span>
+                                <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                             </div>
-                            <div class="cartContainer">
-                                <div class="cart">
-                                    <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                                </div>
+                            <div class="accountList">
+                                <a class="itemAccount">My Account</a>
+                                <a class="itemAccount">Contact</a>
+                                <a class="itemAccount">My Cart</a>
+                                <a class="itemAccount">Sign in</a>
                             </div>
-                            <div class="login">Login</div>
+                        </div>
+                        <div class="cartContainer">
+                            <div class="cart">
+                                <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                        <div class="login">Login</div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="header-top">
+                <div class="container" style="display: flex">
+                    <div class="leftHeaderTop">
+                        <a href="/" class="logoContainer">
+                            <img src=@Url.Content("/Content/images/logo.jpg") class="img-fluid logo">
+                        </a>
+                    </div>
+                    <div class="rightHeaderTop">
+                        <div class="form-group">
+                            <input type="text"
+                                   class="form-control searchInput" name="" id="" aria-describedby="helpId" placeholder="Search keyword" />
+                            <input type="submit" id="submitSearch" />
                         </div>
                     </div>
-                </nav>
-                <nav class="header-top">
-                    <div class="container" style="display: flex">
-                        <div class="leftHeaderTop">
-                            <a href="/" class="logoContainer">
-                                <img src=@Url.Content("/Content/images/logo.jpg") class="img-fluid logo">
+                </div>
+            </nav>
+            <div id="headerMenu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 menuDropDown">
+                            <div class="leftCategoryMenu">
+                                <span class="iconCategory"><i class="fa fa-bars"></i></span>
+                                <span class="textCategory text-uppercase">All category</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 listMenuHeader">
+                            <ul class="listMenu">
+                                <li class="menuHeaderItem">
+                                    <a href="">Home</a>
+                                </li>
+                                @{
+                                    var category = (List<CategoryModel>)ViewBag.Category;
+                                }
+                                @foreach (CategoryModel cate in category)
+                                {
+                                    List<CategoryModel> childrens = cate.childrens;
+                                    int column = childrens.Count % 4 == 0 ? (childrens.Count / 4) : (childrens.Count / 4) + 1;                                   
+                                        <li class="menuHeaderItem hasChildren">
+                                            <a href="">@cate.Name<i class="fa fa-angle-down"></i></a>
+                                            @if (column > 0)
+                                            {
+                                            <div class="containerSubMenu">
+                                                <div class="topSubMenu">
+                                                    @for (var col = 0; col < column; col++)
+                                                    {
+                                                        <ul class="subChildMenuList">
+                                                            @for (var elm = 0 + col * 4; elm < (4 + col * 4 > childrens.Count ? childrens.Count : 4 + col * 4); elm++)
+                                                            {
+                                                                <li class="itemSubMenuList">
+                                                                    <a href="">@childrens[elm].Name</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+                                                </div>
+                                                <div class="bottomSubMenu">
+                                                    <img src=@Url.Content("/Content/images/menu5.jpg") class="img-fluid" alt="">
+                                                </div>
+                                            </div>
+                                            }
+                                        </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <footer>
+            <div class="bottomContainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="boxContent">
+                                <div class="fa fa-paper-plane"></div>
+                                <div class="contentText">
+                                    <h3><a href="#">Free Shipping</a></h3>
+                                    <p>Integer vitae libero ac risus egestas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="boxContent">
+                                <div class="fa fa-mail-reply-all"></div>
+                                <div class="contentText">
+                                    <h3><a href="#">Exchanges &amp; return</a></h3>
+                                    <p>Integer vitae libero ac risus egestas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="boxContent">
+                                <div class="fa fa-credit-card"></div>
+                                <div class="contentText">
+                                    <h3><a href="#">Secure Payments</a></h3>
+                                    <p>Integer vitae libero ac risus egestas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="topFooter">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-lg-3 col-md-4 col-sm-12 location">
+                            <a href="#" class="containerCol">
+                                <span><i class="fa fa-map-marker"></i></span>
+                                <span class="headingFooter">Vị trí cửa hàng</span>
                             </a>
                         </div>
-                        <div class="rightHeaderTop">
-                            <div class="form-group">
-                                <input type="text"
-                                       class="form-control searchInput" name="" id="" aria-describedby="helpId" placeholder="Search keyword" />
-                                <input type="submit" id="submitSearch" />
-                            </div>
+                        <div class="col-lg-6 col-md-4 col-sm-12 order" style="padding: 15px;">
+                            <a href="">
+                                <span><i class="fa fa-mobile"></i></span>
+                                <span>Đặt hàng  : +0123435439</span>
+                            </a>
                         </div>
-                    </div>
-                </nav>
-                <div id="headerMenu">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 menuDropDown">
-                                <div class="leftCategoryMenu">
-                                    <span class="iconCategory"><i class="fa fa-bars"></i></span>
-                                    <span class="textCategory text-uppercase">All category</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 listMenuHeader">
-                                <ul class="listMenu">
-                                    <li class="menuHeaderItem">
-                                        <a href="">Home</a>
-                                    </li>
-                                    <li class="menuHeaderItem">
-                                        <a href="">Fashion</a>
-                                    </li>
-                                    <li class="menuHeaderItem hasChildren">
-                                        <a href="">Hanbag<i class="fa fa-angle-down"></i></a>
-                                        <div class="containerSubMenu">
-                                            <div class="topSubMenu">
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men fashion</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Shoes</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="bottomSubMenu">
-                                                <img src=@Url.Content("/Content/images/menu5.jpg") class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menuHeaderItem hasChildren">
-                                        <a href="">Shoes<i class="fa fa-angle-down"></i></a>
-                                        <div class="containerSubMenu">
-                                            <div class="topSubMenu">
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men fashion</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Shoes</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="bottomSubMenu">
-                                                <img src=@Url.Content("/Content/images/menu5.jpg") class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menuHeaderItem">
-                                        <a href="">Woman</a>
-                                    </li>
-                                    <li class="menuHeaderItem hasChildren">
-                                        <a href="">Shoes<i class="fa fa-angle-down"></i></a>
-                                        <div class="containerSubMenu">
-                                            <div class="topSubMenu">
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                                <ul class="subChildMenuList">
-                                                    <li class="itemSubMenuList titleSubMenu">MEN FASHION</li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men fashion</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Bag</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Men Shoes</a>
-                                                    </li>
-                                                    <li class="itemSubMenuList">
-                                                        <a href="">Woman Bag</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="bottomSubMenu">
-                                                <img src=@Url.Content("/Content/images/menu5.jpg") class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menuHeaderItem">
-                                        <a href="">Dress</a>
-                                    </li>
-                                    <li class="menuHeaderItem">
-                                        <a href="">About us</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="col-lg-3 col-md-4 col-sm-12 scrollTop text-right">
+                            <a href="#" class="containerCol arrow">
+                                <span class="arrowSrcollTop"><i class="fa fa-long-arrow-up"></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </header>
-
-            <div>
-                @RenderBody()
             </div>
-           
-            <footer>
-                <div class="bottomContainer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="boxContent">
-                                    <div class="fa fa-paper-plane"></div>
-                                    <div class="contentText">
-                                        <h3><a href="#">Free Shipping</a></h3>
-                                        <p>Integer vitae libero ac risus egestas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="boxContent">
-                                    <div class="fa fa-mail-reply-all"></div>
-                                    <div class="contentText">
-                                        <h3><a href="#">Exchanges &amp; return</a></h3>
-                                        <p>Integer vitae libero ac risus egestas.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="boxContent">
-                                    <div class="fa fa-credit-card"></div>
-                                    <div class="contentText">
-                                        <h3><a href="#">Secure Payments</a></h3>
-                                        <p>Integer vitae libero ac risus egestas.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
+            <div class="container">
+                <div class="row middleFooter">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="titleColFooter text-uppercase">Menu</div>
+                        <ul class="listLink list-unstyled">
+                            <li><a href="" class="">Pizza</a></li>
+                            <li><a href="" class="">Mì</a></li>
+                            <li><a href="" class="">Gà rán</a></li>
+                            <li><a href="" class="">Đồ uống</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="titleColFooter text-uppercase">Về chúng tôi</div>
+                        <ul class="listLink list-unstyled">
+                            <li><a href="" class="">Cửa hàng</a></li>
+                            <li><a href="" class="">Dịch vụ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="titleColFooter text-uppercase">Thông tin</div>
+                        <ul class="listLink list-unstyled">
+                            <li><a href="" class="">Liên hệ</a></li>
+                            <li><a href="" class="">Địa điểm</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="titleColFooter text-uppercase">Cập nhật thông tin</div>
+                        <p>Nhập email để cập nhật thông tin mới nhất</p>
+                        <div class="emailInput">
+                            <input type="text" class="email" placeholder="Email">
+                            <span><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <div class="socials">
+                            <ul class="list-unstyled">
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa fa-google"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="topFooter">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-lg-3 col-md-4 col-sm-12 location">
-                                <a href="#" class="containerCol">
-                                    <span><i class="fa fa-map-marker"></i></span>
-                                    <span class="headingFooter">Vị trí cửa hàng</span>
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-4 col-sm-12 order" style="padding: 15px;">
-                                <a href="">
-                                    <span><i class="fa fa-mobile"></i></span>
-                                    <span>Đặt hàng  : +0123435439</span>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-12 scrollTop text-right">
-                                <a href="#" class="containerCol arrow">
-                                    <span class="arrowSrcollTop"><i class="fa fa-long-arrow-up"></i></span>
-                                </a>
-                            </div>
-                        </div>
+                <div class="row bottomFooter">
+                    <div class="col-lg-12 text-center bottomFooter">
+                        <p class="text-uppercase font-weight-bold">THS. Phạm Thi Vương</p>
+                        <p>Kids Team 2017 <i class="fa fa-copyright"></i> - Công nghệ .NET</p>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row middleFooter">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="titleColFooter text-uppercase">Menu</div>
-                            <ul class="listLink list-unstyled">
-                                <li><a href="" class="">Pizza</a></li>
-                                <li><a href="" class="">Mì</a></li>
-                                <li><a href="" class="">Gà rán</a></li>
-                                <li><a href="" class="">Đồ uống</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="titleColFooter text-uppercase">Về chúng tôi</div>
-                            <ul class="listLink list-unstyled">
-                                <li><a href="" class="">Cửa hàng</a></li>
-                                <li><a href="" class="">Dịch vụ</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="titleColFooter text-uppercase">Thông tin</div>
-                            <ul class="listLink list-unstyled">
-                                <li><a href="" class="">Liên hệ</a></li>
-                                <li><a href="" class="">Địa điểm</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="titleColFooter text-uppercase">Cập nhật thông tin</div>
-                            <p>Nhập email để cập nhật thông tin mới nhất</p>
-                            <div class="emailInput">
-                                <input type="text" class="email" placeholder="Email">
-                                <span><i class="fa fa-envelope"></i></span>
-                            </div>
-                            <div class="socials">
-                                <ul class="list-unstyled">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row bottomFooter">
-                        <div class="col-lg-12 text-center bottomFooter">
-                            <p class="text-uppercase font-weight-bold">THS. Phạm Thi Vương</p>
-                            <p>Kids Team 2017 <i class="fa fa-copyright"></i> - Công nghệ .NET</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </main>
-    </body>
+            </div>
+        </footer>
+    </main>
+</body>
 </html>
