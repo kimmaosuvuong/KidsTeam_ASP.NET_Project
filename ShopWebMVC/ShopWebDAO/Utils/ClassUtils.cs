@@ -6,13 +6,17 @@ using System.Data;
 
 namespace ShopWebDAO.Utils
 {
-    public class ClassUtils
+    public abstract class ClassUtils
     {
+        public ShopOnlineDBDataContext context;
+
+        public ClassUtils() {
+            context = new ShopOnlineDBDataContext();
+        }
         //lay tat ca du lieu cua bang
         public IList<T> findAll<T>() where T : class
         {
             IList<T> result = new List<T>();
-            ShopOnlineDBDataContext context = new ShopOnlineDBDataContext();
             var query = from a in context.GetTable<T>()
                         select a;
             var list = query.ToList();
@@ -21,7 +25,6 @@ namespace ShopWebDAO.Utils
         //them 1 hang vao trong bang
         public T save<T>(T A) where T : class
         {
-            ShopOnlineDBDataContext context = new ShopOnlineDBDataContext();
             context.GetTable<T>().InsertOnSubmit(A);
             try
             {
@@ -31,9 +34,40 @@ namespace ShopWebDAO.Utils
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                context.SubmitChanges();
-                return A;
+                return null;
             }
+        }
+        //Xoa 1 hang trong bang
+        public bool delete<T>(T A) where T : class {
+            bool result = false;
+            context.GetTable<T>().DeleteOnSubmit(A);
+            try
+            {
+                context.SubmitChanges();
+                result = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                result = false;
+            }
+            return result;
+        }
+        //Cap nhat lai thong tin trong bang sau khi thay doi
+        public bool update<T>() where T : class
+        {
+            bool result = false;
+            try
+            {
+                context.SubmitChanges();
+                result = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                result = false;
+            }
+            return result;
         }
     }
 }

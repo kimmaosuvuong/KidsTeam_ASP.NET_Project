@@ -1,4 +1,4 @@
-﻿
+﻿@model Model.AccountModel
 @{
     ViewBag.Title = "UpdateProfile";
     Layout = "~/Views/Shared/MyLayout.cshtml";
@@ -24,38 +24,52 @@
         <div class="col-lg-2 col-md-2 col-xl-2">
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-            <form class="form-update-profile">
+            @using (Html.BeginForm("Update", "Customer", FormMethod.Post, new { @class = "form-update-profile" }))
+            {
                 <h1 class="step-title h3">
                     Update Personal Information
                 </h1>
+                @Html.ValidationSummary(false, "", "error")
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <label for="inputUsername3" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", id = "inputUsername3", @Value = Model.UserName})
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        @Html.PasswordFor(model => model.PassWord, new { @class = "form-control", id = "inputPassword3", placeholder = "Password", @Value = Model.PassWord })
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputNamed3" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNamed3" placeholder="Name">
+                        @Html.TextBoxFor(model => model.Customer.Name, new { @class = "form-control", id = "inputNamed3", placeholder = "Name", @Value = Model.Customer.Name })
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPhoneNumber3" class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPhoneNumber3" placeholder="Phone">
+                        @Html.TextBoxFor(model => model.Customer.Phone, new { @class = "form-control", id = "inputPhoneNumber3", placeholder = "Phone", @Value = Model.Customer.Phone })
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputAddress3" class="col-sm-2 col-form-label">Your Address</label>
+                    <label for="inputAddress3" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputAddress3" placeholder="Your Address">
+                        @Html.TextBoxFor(model => model.Customer.Address, new { @class = "form-control", id = "inputAddress3", placeholder = "Address", @Value = Model.Customer.Address })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Customer.Email, new { @class = "form-control", id = "inputEmail3", placeholder = "Email", @Value = Model.Customer.Email })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputBirthday3" class="col-sm-2 col-form-label">Birthday</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Customer.Birthday, new { @class = "form-control", id = "inputBirthday3", @Value = Model.Customer.Birthday.ToString("yyy-MM-dd"), @type="date" })
                     </div>
                 </div>
                 <div class="form-group row">
@@ -63,7 +77,7 @@
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
-            </form>
+            }
         </div>
         <div class="col-lg-2 col-md-2 col-xl-2">
         </div>
@@ -73,5 +87,3 @@
     <script src=@Url.Content("/Content/bootstrap-4.0.0/js/bootstrap.min.js")></script>
     <script src=@Url.Content("/Content/js/index.js")></script>
 </div>
-
-
