@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/MyLayout.cshtml";
+    var listProduct = (List<Model.Product>)ViewBag.listProduct;
+    var newProduct = (List<Model.Product>)ViewBag.newProduct;
 }
 
 <div class="sidebar">
@@ -327,227 +329,41 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                 <div class="row" style="overflow: hidden;">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
+
+                    @foreach (var item in listProduct)
+                    {
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="itemProduct">
+                                <div class="topItemProduct">
+                                    <a href="">
+                                        <img src=@Url.Content(@item.Image) class="img-fluid imgLayerProduct" alt="">
                                     </a>
+                                    <div class="button-action">
+                                        <form action="" method="post">
+                                            <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
+                                            <input type="hidden" name="id_product" value="11">
+                                            <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                        </form>
+                                        <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div href="" class="bottomItemProduct text-center mt-4">
+                                    <a href="" class="titleProduct">@item.Name</a>
+                                    <p>
+                                        <span class="salePrice">@item.Price.ToString("N0") VND</span>
+                                    </p>
                                 </div>
                             </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4" style="overflow: hidden;">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="itemProduct">
-                            <div class="topItemProduct">
-                                <a href="">
-                                    <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                                </a>
-                                <div class="button-action">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                        <input type="hidden" name="id_product" value="11">
-                                        <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </form>
-                                    <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div href="" class="bottomItemProduct text-center mt-4">
-                                <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                                <p>
-                                    <span class="salePrice">$21.35</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    }
+                 
+                
+                  
+                   
         <div class="row mt-4 mb-4 ">
             <div class="text-center hover-banner block">
                 <a href="">
@@ -585,114 +401,37 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="itemProduct">
-                    <div class="topItemProduct">
-                        <a href="">
-                            <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                        </a>
-                        <div class="button-action">
-                            <form action="" method="post">
-                                <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                <input type="hidden" name="id_product" value="11">
-                                <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            </form>
-                            <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                <i class="fa fa-eye"></i>
+            @foreach (var item in newProduct)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="itemProduct">
+                        <div class="topItemProduct">
+                            <a href="">
+                                <img src=@Url.Content(@item.Image) class="img-fluid imgLayerProduct" alt="">
                             </a>
+                            <div class="button-action">
+                                <form action="" method="post">
+                                    <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
+                                    <input type="hidden" name="id_product" value="11">
+                                    <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                                <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div href="" class="bottomItemProduct text-center mt-4">
+                            <a href="" class="titleProduct">@item.Name</a>
+                            <p>
+                                <span class="salePrice">@item.Price.ToString("N0") VND</span>
+                            </p>
                         </div>
                     </div>
-                    <div href="" class="bottomItemProduct text-center mt-4">
-                        <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                        <p>
-                            <span class="salePrice">$21.35</span>
-                        </p>
-                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="itemProduct">
-                    <div class="topItemProduct">
-                        <a href="">
-                            <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                        </a>
-                        <div class="button-action">
-                            <form action="" method="post">
-                                <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                <input type="hidden" name="id_product" value="11">
-                                <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            </form>
-                            <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div href="" class="bottomItemProduct text-center mt-4">
-                        <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                        <p>
-                            <span class="salePrice">$21.35</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="itemProduct">
-                    <div class="topItemProduct">
-                        <a href="">
-                            <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                        </a>
-                        <div class="button-action">
-                            <form action="" method="post">
-                                <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                <input type="hidden" name="id_product" value="11">
-                                <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            </form>
-                            <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div href="" class="bottomItemProduct text-center mt-4">
-                        <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                        <p>
-                            <span class="salePrice">$21.35</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="itemProduct">
-                    <div class="topItemProduct">
-                        <a href="">
-                            <img src=@Url.Content("/Content/images/faded-short-sleeves-tshirt.jpg") class="img-fluid imgLayerProduct" alt="">
-                        </a>
-                        <div class="button-action">
-                            <form action="" method="post">
-                                <input type="hidden" name="token" value="2946b31b5d0548493db70cbe4070457d">
-                                <input type="hidden" name="id_product" value="11">
-                                <button class="add-to-cart" data-button-action="add-to-cart" type="submit">
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            </form>
-                            <a href="javascript:void(0)" class="quick-view" data-link-action="quickview" title="Quick view">
-                                <i class="fa fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div href="" class="bottomItemProduct text-center mt-4">
-                        <a href="" class="titleProduct">Quisque volutpat mattis.</a>
-                        <p>
-                            <span class="salePrice">$21.35</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+
+            }
         </div>
     </div>
 </section>
