@@ -44,6 +44,7 @@ namespace ShopWebMVC.Controllers
             }
             return View("Index");
         }
+        // cập nhật đăng xuất tài khoản
         public ActionResult Logout()
         {
             var accounModel = Session[CommonStatuses.ACCOUNT];
