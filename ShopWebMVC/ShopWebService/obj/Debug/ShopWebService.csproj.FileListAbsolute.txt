@@ -1,0 +1,9 @@
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebService.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebService.pdb
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\Model.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebDAO.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\Model.pdb
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\bin\Debug\ShopWebDAO.pdb
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.csprojResolveAssemblyReference.cache
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\ShopWebService\obj\Debug\ShopWebService.pdb

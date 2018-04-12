@@ -44,6 +44,17 @@ namespace ShopWebMVC.Controllers
             }
             return View("Index");
         }
+        public ActionResult Logout()
+        {
+            var accounModel = Session[CommonStatuses.ACCOUNT];
+            var user = (AccountModel)accounModel;
+            if (user != null)
+            {
+                Session.Remove(CommonStatuses.ACCOUNT);
+                return RedirectToAction("Index", "Login");
+            }
+            return View();
+        }
         //dang ky 1 tai khona moi
         public ActionResult Register(AccountModel account)
         {

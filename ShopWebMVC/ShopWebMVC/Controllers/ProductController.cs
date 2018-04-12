@@ -4,20 +4,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Model;
+using ShopWebService;
 
 namespace ShopWebMVC.Controllers
 {
     public class ProductController : CustomerBaseController
     {
+
+        private ProductService productService;
+        public ProductController()
+        {
+            productService = new ProductService();
+        }
         // GET: Product
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult DetailProduct()
+        private List<Product> getAllProduct()
         {
+            return productService.getAllProduct();
+        }
+        public ActionResult DetailProduct(long id)
+        {
+            var product = getAllProduct().Where(pro => pro.Id == id).SingleOrDefault();
+            if (product != null) {
+                var relativeProduct = productService.getRelativeProductByCategory(product.CategoryId);
+                ViewBag.relativeProduct = relativeProduct;
+                return View(product);
+            }
             return View();
         }
+
         /// <summary>
         /// lay danh sach san pham theo loai va phan trang
         /// </summary>

@@ -336,7 +336,7 @@
                             <div class="itemProduct">
                                 <div class="topItemProduct">
                                     <a href="">
-                                        <img src=@Url.Content(@item.Image) class="img-fluid imgLayerProduct" alt="">
+                                        
                                     </a>
                                     <div class="button-action">
                                         <form action="" method="post">
@@ -352,7 +352,8 @@
                                     </div>
                                 </div>
                                 <div href="" class="bottomItemProduct text-center mt-4">
-                                    <a href="" class="titleProduct">@item.Name</a>
+                                    @*<a href="" class="titleProduct"></a>*@
+                                    @Html.ActionLink(item.Name, "DetailProduct", "Product", new { id = item.Id }, new { @class = "titleProduct" });
                                     <p>
                                         <span class="salePrice">@item.Price.ToString("N0") VND</span>
                                     </p>
@@ -361,9 +362,7 @@
                         </div>
                     }
                  
-                
-                  
-                   
+                </div>
         <div class="row mt-4 mb-4 ">
             <div class="text-center hover-banner block">
                 <a href="">
@@ -407,7 +406,7 @@
                     <div class="itemProduct">
                         <div class="topItemProduct">
                             <a href="">
-                                <img src=@Url.Content(@item.Image) class="img-fluid imgLayerProduct" alt="">
+                                
                             </a>
                             <div class="button-action">
                                 <form action="" method="post">

@@ -15,11 +15,16 @@ namespace ShopWebDAO
         {
             db = new ShopOnlineDBDataContext();
         }
-     public List<Product> ListProduct()
+        public List<Product> getAllProduct()
+        {
+            var litsProduct = db.Products.ToList();
+            return litsProduct;
+        }
+        public List<Product> ListProduct()
         {
             return db.Products.OrderBy(x => x.Id).Take(8).ToList();
         }
-    public List<Product> ListProByCate(long CateId, ref int totalRecord, int page = 1, int pageSize =2)
+         public List<Product> ListProByCate(long CateId, ref int totalRecord, int page = 1, int pageSize =2)
         {
             totalRecord = db.Products.Where(x => x.CategoryId == CateId).Count();
             var model =  db.Products.Where(x => x.CategoryId == CateId).OrderBy(x => x.Id).Skip((page-1)*pageSize).Take(pageSize).ToList();
@@ -29,7 +34,7 @@ namespace ShopWebDAO
         {
             return db.Products.OrderByDescending(x => x.Id).Take(4).ToList();
         }
-    public long ViewDetailCate(long id)
+         public long ViewDetailCate(long id)
         {
             long cateId  = db.Categories.Where(x=>x.Id==id).Select(x=>x.Id).First();
             return cateId;

@@ -185,6 +185,10 @@
       <Project>{379cdb00-a4f9-4bae-a67c-f0410a3a86b3}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShopWebDAO\ShopWebDAO.csproj">
+      <Project>{3dccdf05-8c55-496a-9e0d-5d524ed2b249}</Project>
+      <Name>ShopWebDAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopWebService\ShopWebService.csproj">
       <Project>{788ef7d9-b110-4779-bd16-231b1ebf9991}</Project>
       <Name>ShopWebService</Name>

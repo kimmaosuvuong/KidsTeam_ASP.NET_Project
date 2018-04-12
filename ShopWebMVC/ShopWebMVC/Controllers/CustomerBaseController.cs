@@ -11,7 +11,6 @@ namespace ShopWebMVC.Controllers
     public abstract class CustomerBaseController : Controller
     {
         public CategoryService categoryService { get; set;}
-
         public CustomerBaseController() {
             categoryService = new CategoryService();
             ViewBag.Category = categoryService.getCategory();
