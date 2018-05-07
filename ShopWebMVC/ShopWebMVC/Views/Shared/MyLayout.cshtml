@@ -29,7 +29,7 @@
                     <div class="middleHeaderNav">
                         <span>Welcome to Fashion Shop !</span>
                     </div>
-                    <div class="rightHeaderNav">
+                    <div class="rightHeaderNav" style="display: flex; flex: 2">
                         <div class="myAccount">
                             <div class="textAccount">
                                 <span>My Account</span>
@@ -47,7 +47,29 @@
                                 <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                             </div>
                         </div>
-                        <div class="login">Login</div>
+                        @{
+                            var accounModel = Session[CommonStatuses.ACCOUNT];
+                            var user = (AccountModel)accounModel;
+                            if (user != null)
+                            {
+                                <div style="display: flex">
+                                    User:@user.UserName
+                                    <div>
+                                        @Html.ActionLink("Logout", "Logout", "Login")
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="login">
+                                    @Html.ActionLink("Login", "Index","Login")
+                                </div>
+                                
+                            }
+
+                        }
+                       
                     </div>
                 </div>
             </nav>
@@ -86,8 +108,9 @@
                                 }
                                 @foreach (CategoryModel cate in category)
                                 {
+                                    var url = "/category/" + cate.Id;
                                     List<CategoryModel> childrens = cate.childrens;
-                                    int column = childrens.Count % 4 == 0 ? (childrens.Count / 4) : (childrens.Count / 4) + 1;                                   
+                                    int column = childrens.Count % 4 == 0 ? (childrens.Count / 4) : (childrens.Count / 4) + 1;
                                         <li class="menuHeaderItem hasChildren">
                                             <a href="">@cate.Name<i class="fa fa-angle-down"></i></a>
                                             @if (column > 0)
@@ -99,8 +122,9 @@
                                                         <ul class="subChildMenuList">
                                                             @for (var elm = 0 + col * 4; elm < (4 + col * 4 > childrens.Count ? childrens.Count : 4 + col * 4); elm++)
                                                             {
+                                                                url = "/category/" + @childrens[elm].Id;
                                                                 <li class="itemSubMenuList">
-                                                                    <a href="">@childrens[elm].Name</a>
+                                                                    <a href =@url>@childrens[elm].Name</a>
                                                                 </li>
                                                             }
                                                         </ul>

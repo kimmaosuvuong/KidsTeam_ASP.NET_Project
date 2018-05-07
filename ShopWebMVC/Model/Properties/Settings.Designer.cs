@@ -26,11 +26,22 @@ namespace Model.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-L07QB76\\TUANDANG;Initial Catalog=ShopOnlineDB;Integrated Secu" +
-            "rity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-NMU9TV9;Initial Catalog=ShopOnlineDB;Integrated Security=True" +
+            "")]
         public string ShopOnlineDBConnectionString {
             get {
                 return ((string)(this["ShopOnlineDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-NMU9TV9;Initial Catalog=ShopOnlineDB;Integrated Security=True" +
+            "")]
+        public string ShopOnlineDBConnectionString1 {
+            get {
+                return ((string)(this["ShopOnlineDBConnectionString1"]));
             }
         }
     }

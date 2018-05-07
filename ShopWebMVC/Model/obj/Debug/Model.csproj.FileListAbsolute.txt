@@ -1,0 +1,6 @@
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\bin\Debug\Model.dll.config
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\bin\Debug\Model.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\bin\Debug\Model.pdb
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\bin\Debug\System.Data.Linq.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\obj\Debug\Model.dll
+E:\Webstom\CNNET\KidsTeam_ASP.NET_Project\ShopWebMVC\Model\obj\Debug\Model.pdb
